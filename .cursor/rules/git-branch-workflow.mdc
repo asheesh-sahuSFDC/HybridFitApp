@@ -1,0 +1,35 @@
+---
+description: Git branching workflow - create child branch from origin/main before making changes
+alwaysApply: true
+---
+
+# Git Branch Workflow
+
+Before making any code changes, follow this workflow:
+
+## 1. Create a child branch from origin/main
+
+```bash
+git fetch origin
+git checkout -b <branch-name> origin/main
+```
+
+Use a descriptive branch name (e.g., `feature/hydration-fix`, `fix/meal-tracking`, `feat/new-component`).
+
+## 2. Make changes
+
+Implement the requested changes on the new branch only.
+
+## 3. Commit and push to the child branch
+
+```bash
+git add <changed-files>
+git commit -m "<descriptive message>"
+git push -u origin <branch-name>
+```
+
+## Rules
+
+- **Never** commit directly to `main` — always work on a child branch
+- **Always** branch from `origin/main` (not local main) to ensure a clean base
+- **Push** to the child branch; do not merge to main unless the user explicitly asks
